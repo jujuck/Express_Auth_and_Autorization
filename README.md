@@ -8,7 +8,7 @@ In a second time, we will try to implement Authentification with JWT and middlew
 ## Start
 Git clone your project and copy the .env-sample to a .env.... and fill the variable with yours
 
-## Steps
+## Part 1 => MVC Like
 - 1/ Create an express serveur with an app.js file as entry point
 - 2/ Create the DB with the SQL file
 - 3/ Configurre your connection with a db-config.js file and the package dotenv and mysql2
@@ -17,3 +17,19 @@ Git clone your project and copy the .env-sample to a .env.... and fill the varia
 - 6/ Create the GET route, using your model to get the data with promise (.then, .catch)
 - 7/ Create the GET by Id route, using your :odel file as on top.
 - 8/ Improve your GET route with params (?type=""&ph="")
+
+## Part 2 => Middleware and Auth with JWT
+- 1/ Create a new file route (Auth)and add a post method on /login
+- 2/ In the route, we will first check for password validity 
+      - Create a find one method to get the password from the email in an user model
+      - With the bcrypt package, compare the password
+      - If true => send a connected connexion, else Invalid credentials
+- 3/ If connection is accepted, we want to send a cookies with a JWT
+      - First, load the jsonwebtoken package and import it in a new file users.js in a helpers Folder
+      - Declare a private Key in your .env and import it in your helpers/users.js
+      - Create a function with the email and uuids to create a token (Have a look at the method of jwt) and export it
+      - Import the method in the routes/auth.js and use it to calculate a token
+      - Put it in a cookies method with params (httpOnly : true, expires: 24h)
+- 4/Now, restructure your projet to put the code to checkthe password in a middleware and keep only the return statement in the route
+- 5/ In the routes/beers.js, add a route post in it.
+- 6/ Implement a middleware in it, to check if the user is correctly connected before going to the post query
