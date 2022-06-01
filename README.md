@@ -19,7 +19,20 @@ Git clone your project and copy the .env-sample to a .env.... and fill the varia
 - 8/ Improve your GET route with params (?type=""&ph="")
 
 ## Part 2 => Middleware and Auth with JWT
-- 1/ Create a new file `auth.js` in the route folder and add a post method on */signin*
+- 1/ Create a new file `auth.js` in the route folder and add a post method on */signin*. Don't forget to add the reference on the `index.js`
+    ```
+    const beersRouter = require('./beers');
+    const authRouter = require('./auth');
+
+    const setUpRoutes = (app) => {
+      app.use('/beers', beersRouter)
+      app.use('/auth', authRouter)
+    };
+
+    module.exports = {
+      setUpRoutes
+    }
+    ```
     - Create a new table for the user with an unique *id*, unique *email* and *hashedpassword*
     - Create a function to hash the password with `àrgon`
     - Insert into the table the *email* and *hashedpassword* (Check the error as email already exist, and so on);
