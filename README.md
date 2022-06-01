@@ -19,23 +19,23 @@ Git clone your project and copy the .env-sample to a .env.... and fill the varia
 - 8/ Improve your GET route with params (?type=""&ph="")
 
 ## Part 2 => Middleware and Auth with JWT
-- 1/ Create a new file `auth.js` in the route folder and add a post method on /signin
-    - Create a new table for the user with an unique id, unique email and hashedpassword
-    - Create a function to hash the passwword with argon
-    - Insert into the table the email and hashedpassword (Check the error as email already exist, and so on);
+- 1/ Create a new file `auth.js` in the route folder and add a post method on */signin*
+    - Create a new table for the user with an unique *id*, unique *email* and *hashedpassword*
+    - Create a function to hash the password with `àrgon`
+    - Insert into the table the *email* and *hashedpassword* (Check the error as email already exist, and so on);
     We can now register ourself!!! Now, can we login
-- 2/ In the same file, add a /login route.
-      - Create a find one method to get the password from the email in an user model file. if the email doesn't exist, stop the process with a correct message
-      - Otherwise, compare the hashpassword with the plain password from the body
+- 2/ In the same file, add a */login* route.
+      - Create a find one method to get the *password*from the *email* in an user model file. If the email doesn't exist, stop the process with a correct message
+      - Otherwise, compare the *hashpassword* with the plain password from the body
       - If true => send a connected connexion, else Invalid credentials
 - 3/ If connection is accepted, we want to send a cookies with a JWT
-      - First, load the jsonwebtoken package and import it in a new file users.js in a helpers Folder
-      - Declare a private Key in your .env and import it in your helpers/users.js
-      - Create a function with the emailto create a token (Have a look at the method of jwt) and export it
-      - Import the method in the routes/auth.js and use it to calculate a token
+      - First, load the `jsonwebtoken` package and import it in a new file users.js in a helpers Folder
+      - Declare a private Key in your `.env` and import it in your `helpers/users.js`
+      - Create a function with the *email* to create a token (Have a look at the method of jwt) and export it
+      - Import the method in the `routes/auth.js` and use it to calculate a token
       - Put it in a cookies method with params (httpOnly : true, expires: 24h)
 - 4/ Now, restructure your projet to put the code to check the password in a middleware and keep only the return statement in the route
 
 ## Last step Authorization
-- 5/ In the routes/beers.js, add a route post in it.
+- 5/ In the `routes/beers.js`, add a route post in it.
 - 6/ Implement a middleware in it, to check if the user is correctly connected before going to the post query
