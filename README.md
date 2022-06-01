@@ -39,3 +39,4 @@ Git clone your project and copy the .env-sample to a .env.... and fill the varia
 ## Last step Authorization
 - 5/ In the `routes/beers.js`, add a route post in it.
 - 6/ Implement a middleware in it, to check if the user is correctly connected before going to the post query
+- 7/ Do the same to implement the put route and delete with the specific id in params...
