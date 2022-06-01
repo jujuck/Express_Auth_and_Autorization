@@ -22,7 +22,7 @@ Git clone your project and copy the .env-sample to a .env.... and fill the varia
 - 1/ Create a new file `auth.js` in the route folder and add a post method on */signin*
     - Create a new table for the user with an unique *id*, unique *email* and *hashedpassword*
     - Create a function to hash the password with `àrgon` in the `auth.js` router file
-    - Insert into the table the *email* and *hashedpassword* (Check the error as email already exist, and so on);
+    - Then, call the model function to insert into the table `users` the *email* and *hashedpassword* (Check the error as email already exist, and so on);
     We can now register ourself!!! Now, can we login
 - 2/ In the same file, add a */login* route.
       - Create a find one method to get the *password*from the *email* in an user model file. If the email doesn't exist, stop the process with a correct message
