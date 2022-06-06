@@ -13,9 +13,11 @@ const hashPassword = (plainPassword) => {
   return argon2.hash(plainPassword, hashingOptions);
 };
 
+const verifyPassword = (password, hashedPassword) => {
+  return argon2.verify(hashedPassword, password);
+}
+
 authRouter.post('/signin', (req, res) => {
-  console.log("Auth")
-  console.log(req.body)
   hashPassword(req.body.password)
     .then(hashedpassword => {
       Users.createOne(req.body.email, hashedpassword)
@@ -30,7 +32,14 @@ authRouter.post('/login', (req, res) => {
   Users.findOne(req.body.email)
     .then(result => {
       if (result[0]) {
-        res.status(201).send('Yep')
+        verifyPassword(req.body.password, result[0].hashedpassword)
+          .then(response => {
+            res.status(201).send('Yep')
+          })
+          .catch(error => {
+            console.log(error)
+            res.send(error)
+          })
       } else {
         res.status(401).send('wrong credentials, try again')
       }
