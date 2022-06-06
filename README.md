@@ -38,7 +38,7 @@ Git clone your project and copy the .env-sample to a .env.... and fill the varia
     - Insert into the table the *email* and *hashedpassword* (Check the error as email already exist, and so on);
     We can now register ourself!!! Now, can we login
 - 2/ In the same file, add a */login* route.
-      - Create a find one method to get the *password*from the *email* in an user model file. If the email doesn't exist, stop the process with a correct message
+      - Create a find one method to get the *password* from the *email* in an user model file. If the email doesn't exist, stop the process with a correct message
       - Otherwise, compare the *hashpassword* with the plain password from the body
       - If true => send a connected connexion, else Invalid credentials
 - 3/ If connection is accepted, we want to send a cookies with a JWT
