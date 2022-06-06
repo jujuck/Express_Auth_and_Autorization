@@ -1,6 +1,8 @@
 const authRouter = require('express').Router();
+require('dotenv').config();
 const argon2 = require('argon2');
-const Users = require('../models/users')
+const jwt = require('jsonwebtoken')
+const Users = require('../models/users');
 
 const hashingOptions = {
   type: argon2.argon2id,
@@ -34,7 +36,11 @@ authRouter.post('/login', (req, res) => {
       if (result[0]) {
         verifyPassword(req.body.password, result[0].hashedpassword)
           .then(response => {
-            res.status(201).send('Yep')
+            const token = jwt.sign({ email: req.body.email }, process.env.PRIVATETOKEN)
+            res
+              .status(201)
+              .cookie('user_token', token, { httpOnly: true, expires: new Date(Date.now() + (1000 * 60 * 60 * 24)) })
+              .json({ email: req.body.email, token })
           })
           .catch(error => {
             console.log(error)
