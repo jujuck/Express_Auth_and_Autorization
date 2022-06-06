@@ -3,7 +3,7 @@ const authRouter = require('./auth');
 
 const setUpRoutes = (app) => {
   app.use('/beers', beersRouter),
-  app.use('/auth', authRouter)
+    app.use('/auth', authRouter)
 };
 
 module.exports = {

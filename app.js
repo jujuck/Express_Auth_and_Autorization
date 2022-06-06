@@ -12,6 +12,8 @@ connection.connect(err => {
   else console.log('Connexion à la DB ok, id ' + connection.threadId)
 })
 
+app.use(express.json())
+
 setUpRoutes(app);
 
 app.listen(PORT, () => {
