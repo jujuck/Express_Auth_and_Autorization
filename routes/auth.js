@@ -27,6 +27,7 @@ authRouter.post('/login', checkedForEmail, (req, res) => {
         .json({ email: req.body.email, token })
     })
     .catch(error => {
+      console.log(error)
       res.send(error)
     })
 })

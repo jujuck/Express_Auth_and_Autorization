@@ -1,4 +1,5 @@
 const express = require('express');
+const cookie = require('cookie-parser');
 require('dotenv').config();
 const app = express();
 const connection = require('./db-config');
@@ -12,7 +13,9 @@ connection.connect(err => {
   else console.log('Connexion à la DB ok, id ' + connection.threadId)
 })
 
+app.use(cookie())
 app.use(express.json())
+
 
 setUpRoutes(app);
 
