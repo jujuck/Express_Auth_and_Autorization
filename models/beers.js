@@ -24,7 +24,13 @@ const findOne = (id) => {
   return db.query('SELECT * FROM beers WHERE id = ?', [id]).then(result => result[0][0])
 }
 
+const createOne = (body) => {
+  const { name, image_url, ph, tagline, brewers_tips, contributed_by, description, first_brewed } = body;
+  return db.query('INSERT INTO beers(name, image_url, ph, tagline, brewers_tips, contributed_by, description, first_brewed) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [name, image_url, ph, tagline, brewers_tips, contributed_by, description, first_brewed])
+}
+
 module.exports = {
   findMany,
-  findOne
+  findOne,
+  createOne
 }
