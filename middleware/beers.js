@@ -1,14 +1,23 @@
 const Joi = require('joi');
 
-const validateBeers = (req, res, next) => {
+
+const validatePostBeers = (req, res, next) => {
+  validateBeers(req, res, next, 'required')
+}
+
+const validatePutBeers = (req, res, next) => {
+  validateBeers(req, res, next, 'optional')
+}
+
+const validateBeers = (req, res, next, status) => {
   const { err } = Joi.object({
     brewers_tips: Joi.string().max(200).presence('optional'),
     contributed_by: Joi.string().max(24).presence('optional'),
     first_brewed: Joi.string().max(7).presence('optional'),
-    description: Joi.string().max(600).presence('required'),
-    image_url: Joi.string().max(37).presence('required'),
-    name: Joi.string().max(35).presence('required'),
-    ph: Joi.string().max(3).presence('required'),
+    description: Joi.string().max(600).presence(status),
+    image_url: Joi.string().max(37).presence(status),
+    name: Joi.string().max(35).presence(status),
+    ph: Joi.string().max(3).presence(status),
     tagline: Joi.string().max(68).presence('optional')
   }).validate(req.body, { abortEarly: false });
 
@@ -19,4 +28,4 @@ const validateBeers = (req, res, next) => {
   }
 }
 
-module.exports = { validateBeers };
+module.exports = { validatePostBeers, validatePutBeers };

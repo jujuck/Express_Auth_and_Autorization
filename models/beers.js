@@ -29,8 +29,14 @@ const createOne = (body) => {
   return db.query('INSERT INTO beers(name, image_url, ph, tagline, brewers_tips, contributed_by, description, first_brewed) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [name, image_url, ph, tagline, brewers_tips, contributed_by, description, first_brewed])
 }
 
+const updateOne = (body, id) => {
+  return db.query('UPDATE beers SET ? WHERE id = ?', [body, id])
+    .then(res => res)
+}
+
 module.exports = {
   findMany,
   findOne,
-  createOne
+  createOne,
+  updateOne
 }
