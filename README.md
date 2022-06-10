@@ -53,6 +53,6 @@ You can watch the first point on this video (https://drive.google.com/file/d/11Z
 
 ## Last step Authorization
 - 5/ In the `routes/beers.js`, add a route post in it.
-- 6/ Implement a middleware in it, to check if the user is correctly connected before going to the post query
+- 6/ Implement a middleware in it, to check if the user is correctly connected before going to the post query. You should first checked the presence of the cookie, and then its validity.
 - 7/ If the user is correctly connected, then check the data send with the `joi` package with a middleware
 - 8/ Do the same to implement the put route and delete with the specific id in params... (Try to reuse the middleware to check the data on the `put route`
