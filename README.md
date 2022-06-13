@@ -9,7 +9,7 @@ In a second time, we will try to implement Authentification with JWT and middlew
 Git clone your project and copy the .env-sample to a .env.... and fill the variable with yours
 
 ## Part 1 => MVC Like
-You can watch this part on this video (https://drive.google.com/file/d/1wjsfr59HWM5zAVGzvLS3IWrkDBEq1QcI/view?usp=sharing)
+You can watch this part on this video (https://drive.google.com/file/d/11ZGfjYAY6rirnEaEb4diYOUK6Qy65gxX/view?usp=sharing
 - 1/ Create an express serveur with an `app.js `file as entry point
 - 2/ Create the DB with the SQL file
 - 3/ Configure your connection with a `db-config.js` file and the package *dotenv* and *mysql2*
@@ -20,7 +20,7 @@ You can watch this part on this video (https://drive.google.com/file/d/1wjsfr59H
 - 8/ Improve your GET route with params (?type=""&ph="")
 
 ## Part 2 => Middleware and Auth with JWT
-You can watch the first point on this video (https://drive.google.com/file/d/11ZGfjYAY6rirnEaEb4diYOUK6Qy65gxX/view?usp=sharing)
+You can watch the first point on this video (https://drive.google.com/file/d/1wjsfr59HWM5zAVGzvLS3IWrkDBEq1QcI/view?usp=sharing)
 - 1/ Create a new file `auth.js` in the route folder and add a post method on */signin*. Don't forget to add the reference on the `index.js`
     ```
     const beersRouter = require('./beers');
