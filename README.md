@@ -39,6 +39,7 @@ You can watch the first point on this video (https://drive.google.com/file/d/1wj
     - Create a function to hash the password with `àrgon`
     - Insert into the table the *email* and *hashedpassword* (Check the error as email already exist, and so on);
     We can now register ourself!!! Now, can we login
+You can watch this part https://drive.google.com/file/d/1KJeLrS4za4qft18Osvvrz7jhxyob5PZq/view?usp=sharing
 - 2/ In the same file, add a */login* route.
       - Create a find one method to get the *password* from the *email* in an user model file. If the email doesn't exist, stop the process with a correct message
       - Otherwise, compare the *hashpassword* with the plain password from the body
