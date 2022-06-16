@@ -53,6 +53,7 @@ You can watch this part https://drive.google.com/file/d/1KJeLrS4za4qft18Osvvrz7j
 - 4/ Now, restructure your projet to put the code to check the password in a middleware and keep only the return statement in the route
 
 ## Last step Authorization
+You can follow part on this video https://drive.google.com/file/d/1k2TOXDGfIvKrcm_ttYH9IoJXtRnfnujZ/view?usp=sharing
 - 5/ In the `routes/beers.js`, add a route post in it.
 - 6/ Implement a middleware in it, to check if the user is correctly connected before going to the post query. You should first checked the presence of the cookie (Don't forget to install and use the package cookie-parser), and then its validity.
 - 7/ If the user is correctly connected, then check the data send with the `joi` package with a middleware
