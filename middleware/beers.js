@@ -10,7 +10,7 @@ const validatePutBeers = (req, res, next) => {
 }
 
 const validateBeers = (req, res, next, status) => {
-  const { err } = Joi.object({
+  const { error } = Joi.object({
     brewers_tips: Joi.string().max(200).presence('optional'),
     contributed_by: Joi.string().max(24).presence('optional'),
     first_brewed: Joi.string().max(7).presence('optional'),
@@ -21,10 +21,10 @@ const validateBeers = (req, res, next, status) => {
     tagline: Joi.string().max(68).presence('optional')
   }).validate(req.body, { abortEarly: false });
 
-  if (!err) {
+  if (!error) {
     next()
   } else {
-    res.status(400).json(err)
+    res.status(400).json(error)
   }
 }
 
